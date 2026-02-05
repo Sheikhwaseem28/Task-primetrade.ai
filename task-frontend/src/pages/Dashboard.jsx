@@ -46,11 +46,11 @@ const Dashboard = () => {
         product.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    const stats = [
+    const stats = user?.role === 'admin' ? [
         { title: 'Total Products', value: products.length, icon: Package, color: 'text-blue-600', bg: 'bg-blue-100' },
         { title: 'Total Value', value: `₹${products.reduce((acc, p) => acc + p.price, 0).toLocaleString()}`, icon: TrendingUp, color: 'text-green-600', bg: 'bg-green-100' },
         { title: 'Low Stock', value: products.filter(p => p.countInStock < 5).length, icon: AlertCircle, color: 'text-orange-600', bg: 'bg-orange-100' },
-    ];
+    ] : [];
 
     return (
         <div className="container mx-auto p-4 max-w-7xl animate-fade-in-up">
