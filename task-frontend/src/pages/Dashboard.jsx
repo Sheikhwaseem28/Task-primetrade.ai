@@ -56,7 +56,7 @@ const Dashboard = () => {
         <div className="container mx-auto p-4 max-w-7xl animate-fade-in-up">
             {/* Header & Stats */}
             <div className="mb-8">
-                <h1 className="text-3xl font-bold text-gray-800 mb-6">Dashboard Overview</h1>
+                {user?.role === 'admin' && <h1 className="text-3xl font-bold text-gray-800 mb-6">Dashboard Overview</h1>}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {stats.map((stat, index) => (
                         <div key={index} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between hover:shadow-md transition-shadow">
